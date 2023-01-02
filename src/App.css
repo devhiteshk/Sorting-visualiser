@@ -138,3 +138,51 @@ select{
   background-color: rgb(253, 83, 83);
   color: white;
 }
+
+@media only screen and (max-width: 660px) {
+  .selection-container{
+    flex-direction: column;
+  }
+  .input-p{
+    margin-bottom: 20px;
+  }
+
+  .btn{margin-top: 0px;}
+  .algo-btn{
+    margin-top: 15px;
+  }
+  input{
+    margin-bottom: 20px;
+  }
+  .sorting-container{
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .selection-container{
+    flex-direction: column;
+  }
+  .speed-input{
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+  .array-input{
+    margin-top: 5px;
+    flex-direction: column;
+  }
+  .input-p{
+    margin-bottom: 5px;
+  }
+
+  .btn{margin-top: 0px;}
+  .algo-btn{
+    margin-top: 10px;
+  }
+  input{
+    margin-bottom: 10px;
+  }
+  .sorting-container{
+    margin-top: 20px;
+  }
+}
