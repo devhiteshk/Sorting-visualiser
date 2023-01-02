@@ -1,4 +1,4 @@
-let heap_sort = (divs, div_sizes, enableButtons, delay_time, arsize) => {
+let heap_sorting = (divs, div_sizes, enableButtons, delay_time, arsize) => {
   let c_delay = 0;
 
   // update the height and color of div -> set timeout to slowdown algo
@@ -71,7 +71,7 @@ let heap_sort = (divs, div_sizes, enableButtons, delay_time, arsize) => {
       max_heapify(arsize, i);
     }
 
-    for (var i = arsize - 1; i > 0; i--) {
+    for (i = arsize - 1; i > 0; i--) {
       swap(0, i);
       div_update(divs[i], div_sizes[i], "green"); //Color update
       div_update(divs[i], div_sizes[i], "yellow"); //Color update
@@ -90,4 +90,4 @@ let heap_sort = (divs, div_sizes, enableButtons, delay_time, arsize) => {
   }, c_delay);
 };
 
-export default heap_sort;
+export default heap_sorting;

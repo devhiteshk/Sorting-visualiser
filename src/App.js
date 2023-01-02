@@ -8,6 +8,7 @@ import selection_sort from "./Components/Sorting/selection_sort";
 import insertion_sort from "./Components/Sorting/insertion_sort";
 import merge_sort from "./Components/Sorting/merge_sort";
 import quick_sort from "./Components/Sorting/quick_sort";
+import heap_sorting from "./Components/Sorting/heap_sort";
 
 // container element
 let cont;
@@ -125,8 +126,8 @@ function App() {
         quick_sort(divs, div_sizes, enableButtons, delay_time, arsize);
         break;
       case "heap":
-        
-        break
+        heap_sorting(divs, div_sizes, enableButtons, delay_time, arsize);
+        break;
       default:
         break;
     }
