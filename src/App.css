@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 *{
   padding: 0;
   margin: 0;
@@ -7,12 +7,12 @@
 body{
   background-color: #282c34;
   color: white;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .heading{
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 header{
@@ -20,7 +20,7 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FAF8F1;
+  background-color: #cad3ff;
   color: black;
   font-family: 'Poppins', sans-serif;
 }
@@ -30,8 +30,7 @@ header{
 }
 
 .selection-container{
-  margin-top: 25px;
-  height: 50px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +49,86 @@ header{
   align-items: center;
 }
 
+input{
+  height: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn{
+  margin-top: 20px;
+  width: 180px;
+  height: 28px;
+  background-color: rgb(190, 251, 238);
+  color: #282c34;
+  border: none;
+  font-weight: 500;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: aquamarine;
+  color: black;
+}
+
 .input-p{
   margin-right: 10px;
+}
+
+.algo-process-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+select{
+  margin-top: 10px;
+  padding-left: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 160px;
+  height: 25px;
+  background-color: rgb(243, 255, 188);
+}
+
+.bars{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#array_container{
+  background-color: aquamarine;
+  width: 600px;
+  height: 300px;
+}
+
+.sorting-container{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.algo-btn{
+  width: 140px;
+  background-color: rgb(253, 123, 123);
+}
+
+.algo-btn:hover{
+  background-color: rgb(253, 83, 83);
+  color: white;
 }
