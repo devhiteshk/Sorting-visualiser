@@ -1,15 +1,13 @@
 import React from "react";
 
-function Sorting({ algo, setAlgo }) {
-  console.log(algo);
-
+function Sorting({ algo, setAlgo, AlgoRunner }) {
   return (
     <div className="sorting-container">
       <label htmlFor="algorithms">Choose an algorithm:</label>
       <div className="algo-process-container">
         <select
           name="algorithms"
-          id="algo"
+          id="algo_inp"
           defaultValue={"bubble"}
           onChange={(e) => setAlgo(e.target.value)}
         >
@@ -20,7 +18,7 @@ function Sorting({ algo, setAlgo }) {
           <option value="quick">Quick Sort</option>
           <option value="heap">Heap Sort</option>
         </select>
-        <button className="btn algo-btn" id="a_generate" type="submit">
+        <button className="btn algo-btn" id="al_btn" onClick={AlgoRunner}>
           Run Algorithm
         </button>
       </div>

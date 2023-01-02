@@ -1,7 +1,12 @@
 import React from "react";
 
-function Selection({ arsize, alspeed, setArsize, setAlspeed, genNewBtn_handle }) {
-
+function Selection({
+  arsize,
+  alspeed,
+  setArsize,
+  setAlspeed,
+  genNewBtn_handle,
+}) {
   return (
     <section className="input-container">
       <div className="selection-container">
@@ -27,7 +32,7 @@ function Selection({ arsize, alspeed, setArsize, setAlspeed, genNewBtn_handle })
             max={5}
             step={1}
             value={alspeed}
-            onChange={(e) => setAlspeed(e.target.value)}
+            onChange={(x) => setAlspeed(x.target.value)}
             id="algo_speed"
           />
         </div>
