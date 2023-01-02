@@ -5,6 +5,9 @@ import Sorting from "./Components/Sorting";
 import { useState, useEffect } from "react";
 import bubble_sort from "./Components/Sorting/bubble_sort.js";
 import selection_sort from "./Components/Sorting/selection_sort";
+import insertion_sort from "./Components/Sorting/insertion_sort";
+import merge_sort from "./Components/Sorting/merge_sort";
+import quick_sort from "./Components/Sorting/quick_sort";
 
 // container element
 let cont;
@@ -112,6 +115,18 @@ function App() {
       case "selection":
         selection_sort(divs, div_sizes, enableButtons, delay_time, arsize);
         break;
+      case "insertion":
+        insertion_sort(divs, div_sizes, enableButtons, delay_time, arsize);
+        break;
+      case "merge":
+        merge_sort(divs, div_sizes, enableButtons, delay_time, arsize);
+        break;
+      case "quick":
+        quick_sort(divs, div_sizes, enableButtons, delay_time, arsize);
+        break;
+      case "heap":
+        
+        break
       default:
         break;
     }
