@@ -148,6 +148,17 @@ function App() {
       <div className="bars">
         <div id="array_container"></div>
       </div>
+
+      <footer>
+        <p>
+          <a href="https://github.com/devhiteshk/Sorting-visualiser">
+            fork me ❤️
+          </a>
+        </p>
+        <p>
+          Made with 🔥 by <a href="https://hiteshk.dev">@devhiteshk</a>
+        </p>
+      </footer>
     </div>
   );
 }

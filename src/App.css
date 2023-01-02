@@ -147,7 +147,10 @@ select{
     margin-bottom: 20px;
   }
 
-  .btn{margin-top: 0px;}
+  .btn{
+    margin-top: 0px;
+  }
+  
   .algo-btn{
     margin-top: 15px;
   }
@@ -185,4 +188,21 @@ select{
   .sorting-container{
     margin-top: 20px;
   }
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+footer a{
+  color: yellow;
+  text-decoration: none;
+}
+
+footer p{
+  margin-top: 5px;
 }
