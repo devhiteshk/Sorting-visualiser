@@ -111,7 +111,7 @@ select{
 
 #array_container{
   background-color: rgb(255, 255, 255);
-  width: 600px;
+  width: 700px;
   height: 300px;
   padding: 0 5px;
   transform: scale(1, -1);
