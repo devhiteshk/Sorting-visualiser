@@ -1,6 +1,7 @@
 import React from "react";
 
-function Selection({ arsize, alspeed, setArsize, setAlspeed }) {
+function Selection({ arsize, alspeed, setArsize, setAlspeed, genNewBtn_handle }) {
+
   return (
     <section className="input-container">
       <div className="selection-container">
@@ -14,7 +15,7 @@ function Selection({ arsize, alspeed, setArsize, setAlspeed }) {
             step={1}
             value={arsize}
             onChange={(e) => setArsize(e.target.value)}
-            id="size_arr"
+            id="arr_size"
           />
         </div>
         <div className="speed-input">
@@ -32,7 +33,7 @@ function Selection({ arsize, alspeed, setArsize, setAlspeed }) {
         </div>
       </div>
       <div className="generate-array">
-        <button className="btn" id="a_generate" type="submit">
+        <button className="btn" id="a_generate" onClick={genNewBtn_handle}>
           Generate new Array!
         </button>
       </div>

@@ -113,6 +113,12 @@ select{
   background-color: aquamarine;
   width: 600px;
   height: 300px;
+  padding: 0 5px;
+  transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
 }
 
 .sorting-container{
