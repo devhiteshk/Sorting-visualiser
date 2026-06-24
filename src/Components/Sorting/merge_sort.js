@@ -1,19 +1,20 @@
+const CANVAS_HEIGHT = 340;
+
+const C = {
+  default:  "linear-gradient(to top, #7c3aed, #06b6d4)",
+  compare:  "#06b6d4",
+  swap:     "#ef4444",
+  sorted:   "#10b981",
+  mid:      "#f59e0b",
+};
+
 let merge_sort = (divs, div_sizes, enableButtons, delay_time, arsize) => {
   let c_delay = 0;
 
-  // update the height and color of div -> set timeout to slowdown algo
   function div_update(div, height, color) {
-    window.setTimeout(function () {
-      div.style =
-        "margin:0 1px;" +
-        "background-color:" +
-        color +
-        ";" +
-        "width:" +
-        100 / (arsize - 2 * 0.1) +
-        "%; height:" +
-        height * 0.8 +
-        "%;";
+    window.setTimeout(() => {
+      div.style.height     = (height / 100) * CANVAS_HEIGHT + "px";
+      div.style.background = color;
     }, (c_delay += delay_time));
   }
 
@@ -21,44 +22,45 @@ let merge_sort = (divs, div_sizes, enableButtons, delay_time, arsize) => {
 
   function merge_partition(start, end) {
     if (start < end) {
-      var mid = Math.floor(start + (end - start) / 2);
-      div_update(divs[mid], div_sizes[mid], "yellow"); //highlighting middle in yellow
+      const mid = Math.floor(start + (end - start) / 2);
+      div_update(divs[mid], div_sizes[mid], C.mid);
       merge_partition(start, mid);
       merge_partition(mid + 1, end);
-      merge_sort(start, mid, end);
+      do_merge(start, mid, end);
     }
   }
 
-  function merge_sort(start, mid, end) {
-    var p = start,
-      q = mid + 1,
-      k = 0;
-    var arr = [];
-    for (var i = start; i <= end; i++) {
+  function do_merge(start, mid, end) {
+    let p = start, q = mid + 1, k = 0;
+    const arr = [];
+
+    for (let i = start; i <= end; i++) {
       if (p > mid) {
-        arr[k++] = div_sizes[q++];
-        div_update(divs[q - 1], div_sizes[q - 1], "red");
+        arr[k++] = div_sizes[q];
+        div_update(divs[q], div_sizes[q], C.swap);
+        q++;
       } else if (q > end) {
-        arr[k++] = div_sizes[p++];
-        div_update(divs[p - 1], div_sizes[p - 1], "red");
-      } else if (div_sizes[p] < div_sizes[q]) {
-        arr[k++] = div_sizes[p++];
-        div_update(divs[p - 1], div_sizes[p - 1], "red");
+        arr[k++] = div_sizes[p];
+        div_update(divs[p], div_sizes[p], C.swap);
+        p++;
+      } else if (div_sizes[p] <= div_sizes[q]) {
+        arr[k++] = div_sizes[p];
+        div_update(divs[p], div_sizes[p], C.compare);
+        p++;
       } else {
-        arr[k++] = div_sizes[q++];
-        div_update(divs[q - 1], div_sizes[q - 1], "red");
+        arr[k++] = div_sizes[q];
+        div_update(divs[q], div_sizes[q], C.compare);
+        q++;
       }
     }
-    for (var j = 0; j < k; j++) {
-      div_sizes[start++] = arr[j];
-      div_update(divs[start - 1], div_sizes[start - 1], "green");
+
+    for (let j = 0; j < k; j++) {
+      div_sizes[start + j] = arr[j];
+      div_update(divs[start + j], div_sizes[start + j], C.sorted);
     }
   }
 
-  // enable button for running another algo
-  setTimeout(() => {
-    enableButtons();
-  }, c_delay);
+  setTimeout(() => enableButtons(), c_delay);
 };
 
 export default merge_sort;

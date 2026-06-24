@@ -1,51 +1,45 @@
+const CANVAS_HEIGHT = 340;
+
+const C = {
+  default:  "linear-gradient(to top, #7c3aed, #06b6d4)",
+  compare:  "#06b6d4",
+  swap:     "#ef4444",
+  sorted:   "#10b981",
+  pivot:    "#f59e0b",
+};
+
 let bubble_sort = (divs, div_sizes, enableButtons, delay_time, arsize) => {
   let c_delay = 0;
 
-  // update the height and color of div -> set timeout to slowdown algo
   function div_update(div, height, color) {
-    window.setTimeout(function () {
-      div.style =
-        "margin:0 1px;" +
-        "background-color:" +
-        color +
-        ";" +
-        "width:" +
-        100 / (arsize - 2 * 0.1) +
-        "%; height:" +
-        height * 0.8 +
-        "%;";
+    window.setTimeout(() => {
+      div.style.height     = (height / 100) * CANVAS_HEIGHT + "px";
+      div.style.background = color;
     }, (c_delay += delay_time));
   }
 
-  // bubble sort algorithm
-  for (var i = 0; i < arsize - 1; i++) {
-    for (var j = 0; j < arsize - i - 1; j++) {
-      div_update(divs[j], div_sizes[j], "yellow");
+  for (let i = 0; i < arsize - 1; i++) {
+    for (let j = 0; j < arsize - i - 1; j++) {
+      div_update(divs[j], div_sizes[j], C.compare);
 
       if (div_sizes[j] > div_sizes[j + 1]) {
-        //if current is greater that next
-        div_update(divs[j], div_sizes[j], "red");
-        div_update(divs[j + 1], div_sizes[j + 1], "red");
+        div_update(divs[j],     div_sizes[j],     C.swap);
+        div_update(divs[j + 1], div_sizes[j + 1], C.swap);
 
-        var temp = div_sizes[j];
-        div_sizes[j] = div_sizes[j + 1];
+        let temp        = div_sizes[j];
+        div_sizes[j]    = div_sizes[j + 1];
         div_sizes[j + 1] = temp;
 
-        div_update(divs[j], div_sizes[j], "red");
-        div_update(divs[j + 1], div_sizes[j + 1], "red");
+        div_update(divs[j],     div_sizes[j],     C.swap);
+        div_update(divs[j + 1], div_sizes[j + 1], C.swap);
       }
-      div_update(divs[j], div_sizes[j], "blue");
+      div_update(divs[j], div_sizes[j], C.default);
     }
-    // last element is sorted
-    div_update(divs[j], div_sizes[j], "green");
+    div_update(divs[arsize - 1 - i], div_sizes[arsize - 1 - i], C.sorted);
   }
-  // update first element color to green :)
-  div_update(divs[0], div_sizes[0], "green");
+  div_update(divs[0], div_sizes[0], C.sorted);
 
-  // enable button for running another algo
-  setTimeout(() => {
-    enableButtons();
-  }, c_delay);
+  setTimeout(() => enableButtons(), c_delay);
 };
 
 export default bubble_sort;
